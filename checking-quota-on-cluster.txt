@@ -1,0 +1,49 @@
+# Script for Quinn, due on Friday 
+
+
+# Aim: checking my quota on the cluster
+
+# using the command line quota, with the options v and s
+# then piping the command line head
+quota -v -s | head
+
+# here is the output
+# Disk quotas for user efavreau (uid 13591): 
+#     Filesystem   space   quota   limit   grace   files   quota   limit   grace
+
+# checking my quota for the directory VespaCrabro
+# using the command line quota, with the options v and s
+# then piping the command line grep with the option A and 2
+quota -v -s | grep -A 2 "VespaCrabro"
+
+
+# here is the output
+#     128.41.96.8:/slms/gee/research/ugi/VespaCrabro
+#                 27821M      0K   5120G            624k       0   1000k     
+
+# This means that on the cluster I have
+# space 27821M
+# quota 0K
+# limit 5120G
+# files 624k
+# limit 1000k
+
+# Conclusion: I have enough space (27821M out of 5120G) and 
+# I have not run out of number of files allowed 
+# (I have 624k files out of 1000k).
+
+###############################################################################
+# Research notes
+
+# quota https://man7.org/linux/man-pages/man1/quota.1.html
+# here I ask for verbose (-v) which means gives lots of details
+# and I ask for -s which makes all numbers human readable
+
+# head https://man7.org/linux/man-pages/man1/head.1.html
+
+
+# grep https://man7.org/linux/man-pages/man1/grep.1.html
+# here I ask for Context Line Control (-A) where it prints 2 lines after matching
+
+# units used in file sizes
+# M G k https://myrepono.com/faq/4
