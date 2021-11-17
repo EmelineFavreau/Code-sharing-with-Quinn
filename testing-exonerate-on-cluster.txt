@@ -1,0 +1,40 @@
+
+# run the tool in interactive node (as opposed to schedule node)
+qrsh -l tmem=4G, h_rt=00:30:00,h_vmem=4G
+
+
+# go to your project
+cd VespaCrabro/
+
+# create a directory for yrou task
+mkdir testing-exonerate
+mkdir testing-exonerate/input
+mkdir testing-exonerate/tmp
+mkdir testing-exonerate/result
+
+# check exonerate
+/share/apps/genomics/exonerate-2.2.0/bin/exonerate
+
+# we need a target sequence (our wasp genomes) and a query sequence (known OR sequences)
+
+# copy bee genome in project
+cp ../../cool-genomes/bee-genome.fasta input/.
+
+# obtain a genome from the internet
+wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/001/313/835/GCF_001313835.1_ASM131383v1/GCF_001313835.1_ASM131383v1_genomic.fna.gz
+
+
+# query sequence
+vim Polistes_fuscatus_gene.fasta
+>this_gene
+GGAAATATTTTACCCGTCAATTCGGACGAATCGGAATTGTCAttgttatcaataatttaC
+GGAAATATTTTACCCGTCAATTCGGACGAATCGGAATTGTCATTTTTATCAATAATTTAC
+GGAAATATTTTACCCGTCAATTCGGACGAATCGGAATTGTCATTGTTATCAATAATTTAC
+GGAAATGTTTTACCAATGAATTCGAAAGAATCTGAATTAACATTGTTAACAAAAGTTTAC
+GGAAATATTTTACCCATTAATTCTAACCAATCGGAATTATCAttgttatcaatattatat
+
+# try the tool
+/share/apps/genomics/exonerate-2.2.0/bin/exonerate input/Polistes_fuscatus_gene.fasta input/bee-genome.fasta > result/beeQuery_agst_waspTarget.txt
+
+# try with gapped aligment
+/share/apps/genomics/exonerate-2.2.0/bin/exonerate --model affine:local input/Polistes_fuscatus_gene.fasta input/bee-genome.fasta > result/beeQuery_agst_waspTarget_gapped.txt
