@@ -11,4 +11,4 @@
 
 # Run Exonerate for gapped alignment (the <<--model affine:local>> bit is for gapped alignment) using Drosophila Orco as the query, and Vespula germanica as the target
 #Send the result to the 'results' directory and name it "res_fly_v_wasp.txt"
-/share/apps/genomics/exonerate-2.2.0/bin/exonerate --model affine:local input/Drosophila_Orco.fna input/Vespula_germ.fna > results/res_fly_v_wasp.txt
+/share/apps/genomics/exonerate-2.2.0/bin/exonerate --model affine:local /SAN/ugi/GOTITgenomes/genomics-dovetail/input/Drosophila_Orco.fna /SAN/ugi/GOTITgenomes/genomics-dovetail/input/Vespula_germ.fna > /SAN/ugi/GOTITgenomes/genomics-dovetail/results/res_fly_v_wasp.txt
