@@ -5,3 +5,4 @@ Exploring bioinformatics languages with MSci student Quinn:
 What we've learnt:
 - checking that the input file is as expected (e.g. head input/my.fasta)
 - extension .gz refers to compressed data, sometimes needs to be uncompressed
+- add full paths in cluster scripts
