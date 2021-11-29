@@ -1,0 +1,30 @@
+# testing Exonerate with Quinn
+#Create directories 
+mkdir input
+mkdir results
+mkdir tmp 
+
+# cd to input
+cd input
+
+# get the Vespula genome and rename it 
+wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/905/340/365/GCA_905340365.1_iyVesGerm1.1/GCA_905340365.1_iyVesGerm1.1_genomic.fna.gz
+
+# [NEW] decompress and rename it
+gzip -c -d GCA_905340365.1_iyVesGerm1.1_genomic.fna.gz > Vespula_germ.fna
+
+# [NEW] check that the fasta file is as expected
+head Vespula_germ.fna
+
+# from here http://flybase.org/download/sequence/FBgn0037324/FBgn
+# Make file for Drosophila Orco and then copy and paste the gene in 
+nano Drosophila_Orco.fna
+
+cd ..
+
+# test exonarate
+
+# run test script
+qsub testing-exonerate.sh
+
+
