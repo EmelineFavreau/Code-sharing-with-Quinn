@@ -1,3 +1,7 @@
 Exploring bioinformatics languages with MSci student Quinn:
-- in bash: checking-quota-on-cluster.txt, testing-exonerate-on-cluster.txt
+- in bash: checking-quota-on-cluster.txt, testing-exonerate-on-cluster.txt, testing-exonerate-whatidid.txt, testing-exonerate.sh
 - in R: plotting-data-from-internet.Rmd 
+
+What we've learnt:
+- checking that the input file is as expected (e.g. head input/my.fasta)
+- extension .gz refers to compressed data, sometimes needs to be uncompressed
