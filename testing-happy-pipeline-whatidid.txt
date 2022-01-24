@@ -1,0 +1,17 @@
+# the steps are performed from the root of the project
+# pwd -P
+#/SAN/biosciences/mresquinn
+
+# The pipeline is using conda, so the first step is to activate the environment
+conda activate happy
+
+# The pipeline is set to use python 3.9, which currently throws several syntax warnings
+# warnings are not errors, so the pipeline is still running
+
+# Here we test the pipeline
+# we want to find the ORs of Vespa crabro by using Polistes canadensis as a reference
+# focus genome: Vespa crabro (PacBio genome) 
+# reference annotation: Polistes canadensis (from Legan et al 2020)
+# reference genome: Polistes canadensis (fragmented genome) GCF_001313835.1_ASM131383v1
+# cutoff to 0.45 (same as for ants, this might be changed)
+HAPpy --genome PacBio_Genomes/Vespa_crabro.fasta --ref_genome input/GCF_001313835.1_ASM131383v1_genomic.fna --annotations Reference_ORs/msab023_Supplementary_Data/PcanORs.gff.txt --cutoff 0.45 --search_mode exons --annotator ABCENTH
